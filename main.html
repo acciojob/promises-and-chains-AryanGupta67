@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Voting Form</title>
+  <title>Voting Eligibility</title>
 </head>
 <body>
   <h2>Check Voting Eligibility</h2>
@@ -20,16 +20,18 @@
 
   <script>
     document.getElementById("votingForm").addEventListener("submit", function (event) {
-      event.preventDefault(); // prevent form from refreshing
+      event.preventDefault(); // Prevent form from reloading
 
       const name = document.getElementById("name").value.trim();
       const age = parseInt(document.getElementById("age").value.trim());
 
+      // ✅ Fix: Removed period to match expected alert exactly
       if (!name || isNaN(age)) {
-        alert("Please enter valid details.");
+        alert("Please enter valid details");
         return;
       }
 
+      // Promise logic with 4s delay
       const checkEligibility = new Promise((resolve, reject) => {
         setTimeout(() => {
           if (age > 18) {
@@ -47,4 +49,5 @@
   </script>
 </body>
 </html>
+
 
